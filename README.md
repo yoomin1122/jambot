@@ -8,9 +8,13 @@ jambot
 ---  
 
 ## commands
-> 여러 챗 커멘드(야, 뭐해, 바보 등등)
-> 가위바위보
-> 주사위
+
+> 여러 챗 커멘드(야, 뭐해, 바보 등등)  
+
+> 가위바위보  
+
+> 주사위  
+
 
 ## link
 - [[Invite]](http://invite.jambot.kro.kr) 
