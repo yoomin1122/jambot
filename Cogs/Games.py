@@ -1,6 +1,6 @@
 import os.path
 
-import discord
+import discord, asyncio
 from discord.ext import commands
 from discord.ext.commands import CommandNotFound
 import random
@@ -19,7 +19,7 @@ class Games(commands.Cog):
       if c is None:
         await ctx.send("뒤에 가위(찌), 바위(묵), 보(빠)를 쳐야지 이 바보야  `예시) 잼민아 가위바위보 바위`")
 
-      elif c == "가위":
+      elif c == "가위" or c == "찌":
         rcs = [1, 2, 3]
         rcp = random.choice(rcs)
         if rcp == 1:
@@ -29,17 +29,7 @@ class Games(commands.Cog):
         elif rcp == 3:
           await ctx.reply("아 내가 이김 ㅋ")
 
-      elif c == "찌":
-        rcs = [1, 2, 3]
-        rcp = random.choice(rcs)
-        if rcp == 1:
-          await ctx.reply("아 비겻내 ㄲㅂ")
-        elif rcp == 2:
-          await ctx.reply("아 게잘하내 ㄷㄷ")
-        elif rcp == 3:
-          await ctx.reply("아 내가 이김 ㅋ")
-
-      elif c == "바위":
+      elif c == "바위" or c == "묵":
         rcs = [1, 2, 3]
         rcp = random.choice(rcs)
         if rcp == 1:
@@ -49,17 +39,7 @@ class Games(commands.Cog):
         elif rcp == 3:
           await ctx.reply("아 게잘하내 ㄷㄷ")
 
-      elif c == "묵":
-        rcs = [1, 2, 3]
-        rcp = random.choice(rcs)
-        if rcp == 1:
-          await ctx.reply("아 내가 이김 ㅋ")
-        elif rcp == 2:
-          await ctx.reply("아 비겻내 ㄲㅂ")
-        elif rcp == 3:
-          await ctx.reply("아 게잘하내 ㄷㄷ")
-
-      elif c == "보":
+      elif c == "보" or c == "빠":
         rcs = [1, 2, 3]
         rcp = random.choice(rcs)
         if rcp == 1:
@@ -69,21 +49,17 @@ class Games(commands.Cog):
         elif rcp == 3:
           await ctx.reply("아 비겻내 ㄲㅂ")
 
-      elif c == "빠":
-        rcs = [1, 2, 3]
-        rcp = random.choice(rcs)
-        if rcp == 1:
-          await ctx.reply("아 내가 이김 ㅋ")
-        elif rcp == 2:
-          await ctx.reply("아 게잘하내 ㄷㄷ")
-        elif rcp == 3:
-          await ctx.reply("아 비겻내 ㄲㅂ")
-      else: return await ctx.reply(f"`{c}`는 얻이서 나온 말이냐")
-  
-    @commands.command()
-    async def 주사위(self, ctx):
-      ran = random.randint(1, 6)
-      await ctx.reply(f":game_die: 주사위에서 {ran}나옴 ㅋㅋㄹㅃㅃ")
+    @commands.command(aliases=["주사위"])
+    async def 주사위게임(self, ctx):
+      r = random.randint(1, 6)
+      a = random.randint(1, 6)
+
+      if(r>a):
+        await ctx.reply(f"아내가이김 ㅋㅋㄹㅃㅃ \n> 잼민이봇 : {r} vs {ctx.author.mention} : {a}")
+      elif(r<a):
+        await ctx.reply(f"아ㄲㅂ 노잼티비! \n> 잼민이봇 : {r} vs {ctx.author.mention} : {a}")
+      elif(r==a):
+        await ctx.reply(f"아 동점임 노잼 ㅋㅋㄹㅃㅃ \n> 잼민이봇 : {r} vs {ctx.author.mention} : {a}")
 
 def setup(bot):
     bot.add_cog(Games(bot))
