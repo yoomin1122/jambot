@@ -41,7 +41,7 @@ async def on_guild_join(guild):
           embed.add_field(name="개발자", value="> Team DM\n> <@433183785564110848>")
           embed.add_field(name="잼민이봇 서포트 서버", value="[[참여하기]](https://discord.gg/B6MjFDjz23)")
           embed.add_field(name="잼민이봇 투표해주세요!", value="[[투표하기]](https://koreanbots.dev/bots/921424724729397318/vote)", inline=False)
-          embed.add_field(name="잼민이봇 투표해주세요!", value="[[투표하기]](https://koreanbots.dev/bots/921424724729397318/vote)")
+          embed.add_field(name="잼민이봇 초대링크", value="[[초대하기]](http://invite.jambot.kro.kr)")
           await channel.send(embed=embed)
         break
 
