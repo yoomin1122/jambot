@@ -7,6 +7,7 @@ import random
 import time
 import datetime
 from webserver import keep_alive
+import traceback
 
 class Core(commands.Cog):
 
@@ -24,34 +25,71 @@ class Core(commands.Cog):
       embed.add_field(name="메시지", value=f'{round(self.bot.latency * 1000)}ms')
       await ctx.reply(embed=embed, mention_author=False)
 
-    @commands.command(name="ㅎㅇ", aliases=["안녕", "ㅎㅇㅎㅇ", "하이"]) #수정
+    @commands.command(name="ㅎㅇ", aliases=["안녕", "ㅎㅇㅎㅇ", "하이", "안녕하세요", "안녕?"]) #수정
     async def hello(self, ctx): #수정
-        choice = random.choice(["않녕하새요 잼민이에요", "멀봐 ", "엊절티비", "ㅎㅇ", "안녕팁의"])
+        choice = random.choice(["않녕하새요 잼민이에요", "멀봐 ", "엊절티비", "ㅎㅇ", "안녕팁의", "ㅎㅇㅌㅂ"])
         await ctx.send(choice)
     
-    @commands.command(aliases=["개발자"])
+    @commands.command(aliases=["개발자", "developer"])
     async def hellothisisverification(self, ctx):
       await ctx.send("YooMin1122#5973 (433183785564110848) \n달콤한개굴이#6661 (692619473148051496)")
 
     @commands.command(aliases=["invite"])
     async def 초대(self, ctx):
-      await ctx.send(f"**잼민이봇 초대** \n > https://discord.com/api/oauth2/authorize?client_id=921424724729397318&permissions=8&scope=bot%20applications.commands")
+      await ctx.send(f"**잼민이봇 초대** \n> https://discord.com/api/oauth2/authorize?client_id=921424724729397318&permissions=8&scope=bot%20applications.commands")
 
     @commands.command(aliases=["server"])
     async def 서버(self, ctx):
-      await ctx.send(f"**잼민이봇 서버** \n > https://discord.gg/B6MjFDjz23")
+      await ctx.send(f"**잼민이봇 서버** \n> https://discord.gg/B6MjFDjz23")
+    
+    @commands.command()
+    @commands.is_owner()
+    async def 공지(self, ctx, *, text, c:str=None):
+      for guild in self.bot.guilds:
+        for channel in guild.text_channels:
+            if channel:
+                  if c is None:
+                    print("error")
+                  elif c == "긴급공지":
+                    embed = discord.Embed(color=0x000000, timestamp=ctx.message.created_at)
+                    embed.set_author(name="긴급공지", icon_url=self.bot.user.avatar_url)
+                    embed.add_field(name=f"긴급공지 입니다.", value=str(text), inline=False)
+                    embed.set_thumbnail(url=self.bot.user.avatar_url)
+                    embed.set_footer(text=self.bot.user.name, icon_url=self.bot.user.avatar_url)
+                    await ctx.message.add_reaction(emoji="✅")
+                    print("error")
+                  elif c == "공지사항":
+                    embed = discord.Embed(color=0x000000, timestamp=ctx.message.created_at)
+                    embed.set_author(name="공지사항", icon_url=self.bot.user.avatar_url)
+                    embed.add_field(name=f"공지사항 입니다.", value=str(text), inline=False)
+                    embed.set_thumbnail(url=self.bot.user.avatar_url)
+                    embed.set_footer(text=f"Sent by {ctx.message.author}", icon_url=self.bot.user.avatar_url)
+                    await ctx.message.add_reaction(emoji="✅")
+                    await channel.send(embed=embed)
+                    break
+                  elif c == "업데이트":
+                    embed = discord.Embed(color=0x000000, timestamp=ctx.message.created_at)
+                    embed.set_author(name="공지사항", icon_url=self.bot.user.avatar_url)
+                    embed.add_field(name=f"업데이트 내역 입니다.", value=str(text), inline=False)
+                    embed.set_thumbnail(url=self.bot.user.avatar_url)
+                    embed.set_footer(text=self.bot.user.name, icon_url=self.bot.user.avatar_url)
+                    await ctx.message.add_reaction(emoji="✅")
+                    await channel.send(embed=embed)
+                    break
+                  else: return await ctx.send(f"error 404")
+                  await ctx.send(embed=embed)
 
 
-    @commands.command(aliases=["도움말", "도움", "help", "command"])
+    @commands.command(aliases=["도움말", "도움", "help", "commands"])
     async def 명령어(self, ctx, c:str=None):
       if c is None:
         embed = discord.Embed(color=0x000000)
         embed.set_author(name="명령어", icon_url="https://t.ly/QXEv")
         embed.set_thumbnail(url=ctx.author.avatar_url)
-        embed.add_field(name=":point_right: 접두사", value="> 접두사는 `잼민아 `입니다!", inline=False)
+        embed.add_field(name=":point_right: 접두사 (prefix)", value="> 접두사는 `잼민아 `입니다!", inline=False)
         embed.add_field(name=":loudspeaker: 일반", value="> 핑, 안녕, 초대, 서버, 버그", inline=False)
-        embed.add_field(name=":speech_balloon: 대화", value="> 아재개그, 안녕, 바보, 뭐해, 유민, 민트초코, 유튜브, 스티브, 어벤져스, 야, 엄준식, 정상수, 잼민아, 오버워치, 마인크래프트, 샌즈, 따라해, 디스코드, 어쩔티비 \n 랜덤의 메세지가 나옵니다!", inline=False)
-        embed.add_field(name=":video_game: 게임", value="> 가위바위보, 주사위", inline=False)
+        embed.add_field(name=":speech_balloon: 대화 (chat)", value="너무 많은 관계로 [[잼민이봇 서포트서버]](https://discord.gg/B6MjFDjz23)에 #잼민이봇 명령어 채널에서 확인 부탁드려요", inline=False)
+        embed.add_field(name=":video_game: 게임 (game)", value="> 가위바위보, 주사위", inline=False)
         embed.set_footer(text="제작자 : YooMin1122#5973")
       elif c == "접두사":
         embed = discord.Embed(color=0x000000)
@@ -75,7 +113,7 @@ class Core(commands.Cog):
         embed.set_author(name="대화", icon_url="https://t.ly/QXEv")
         embed.set_thumbnail(url=ctx.author.avatar_url)
         embed.add_field(name=":speech_balloon: 대화", value="각 명령어마다 랜덤의 메세지가 나옵니다!", inline=False)
-        embed.add_field(name="목록", value="> 아재개그, 안녕, 바보, 뭐해, 유민, 민트초코, 유튜브, 스티브, 어벤져서, 야, 엄준식, 정상수, 잼민아, 오버워치, 마인크래프트, 샌즈, 따라해, 디스코드, 어쩔티비", inline=False)
+        embed.add_field(name="목록", value="너무 많은 관계로 [[잼민이봇 서포트서버]](https://discord.gg/B6MjFDjz23)에 #잼민이봇 명령어 채널에서 확인 부탁드려요", inline=False)
         embed.set_footer(text="제작자 : YooMin1122#5973")
       elif c == "게임":
         embed = discord.Embed(color=0x000000)
