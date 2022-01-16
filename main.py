@@ -8,6 +8,7 @@ from discord.ext.commands import CommandNotFound
 import pytz
 from webserver import keep_alive
 from koreanbots.integrations.discord import DiscordpyKoreanbots
+import traceback
 
 
 bot = commands.Bot(command_prefix="잼민아 ")
@@ -47,12 +48,12 @@ async def on_guild_join(guild):
 
 @bot.event
 async def on_command_error(ctx, error):
-    if isinstance(error, CommandNotFound): 
+    tb = traceback.format_exception(type(error), error, error.__traceback__)
+    err = [line.rstrip() for line in tb]
+    errstr = '\n'.join(err)
+    if isinstance(error, commands.NotOwner):
+        await ctx.send('봇 주인만 사용 가능한 명령어입니다')
+    elif isinstance(error, CommandNotFound): 
       await ctx.send("멀아는걷야;; `잼민아 명령어`쳐서 좀 아라와!  \n오류가 계속된다면 `잼민아 버그`명령어를 사용해주세요!")
-      return
-    raise error
 
-
-keep_alive()
-TOKEN = os.environ.get("DISCORD_BOT_SECRET")
 bot.run(TOKEN)
