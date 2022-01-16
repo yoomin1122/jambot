@@ -240,6 +240,29 @@ class Message(commands.Cog):
       choice = random.choice(["브롤게꾸ㄹ젬 팁의", "브롤팁이", "아나클오마틱다이쓰ㅁ!", "나브롤렝커임ㅋ"])
       await ctx.send(choice)
 
+    @commands.command(aliases=["연애운"])
+    async def 연애(self, ctx):
+      love = random.randint(5, 101)
+      if (5 >= love):
+        await ctx.send(f"사라ㅁ임? 연에우니 {love}%임 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ")
+      elif (10 >= love):
+        await ctx.send(f"님연에운 {love}%임 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ")
+      elif (50 >= love):
+        await ctx.send(f"님 연에못할듯ㅋ 연애운이{love}%이며ㄴㅋㅋㅋㅋㅋㅋ")
+      elif (80 >= love):
+        await ctx.send(f"평범한내 연에우니{love}%정도면 머..")
+      elif (90 >= love):
+        await ctx.send(f"와 연에우니{love}%정도내")
+      elif (100 >= love):
+        await ctx.send(f"연에운니{love}%개높내 ㄷㄷ")
+      elif (100 == love):
+        await ctx.send(f"신이애요? 연에우니{love}%정라니엄청나내 ㄷㄷㄷㄷ")
+
+    @commands.command()
+    async def 잉앗살라말리이쿰(self, ctx):
+      choice = random.choice(["잉잉이이 아쌀라말라이ㅋㅜㅁ", "아쌀라말라이큼티ㅡ비"])
+      await ctx.send(choice)
+
 
 
 #https://i.ibb.co/PMX6dFK/2022.png
