@@ -232,17 +232,12 @@ class Message(commands.Cog):
 
     @commands.command()
     async def 군림보(self, ctx):
-      choice = random.choice(["돼장", "백으유투버안인가", "~~ㅗㅗㅗ~~", "엊쩔팁의"])
+      choice = random.choice(["돼장", "백으유투버안인가", "엄몽어스 유투버인가", "롣으호그팁의"])
       await ctx.send(choice)
 
     @commands.command()
     async def 브롤스타즈(self, ctx):
-      choice = random.choice(["응않이야팁의", "너나주거티비", "~~ㅗㅗㅗ~~", "엊쩔팁의"])
-      await ctx.send(choice)
-
-    @commands.command()
-    async def 클래시로얄(self, ctx):
-      choice = random.choice(["응않이야팁의", "너나주거티비", "~~ㅗㅗㅗ~~", "엊쩔팁의"])
+      choice = random.choice(["브롤게꾸ㄹ젬 팁의", "브롤팁이", "아나클오마틱다이쓰ㅁ!", "나브롤렝커임ㅋ"])
       await ctx.send(choice)
 
 
