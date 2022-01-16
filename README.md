@@ -5,8 +5,7 @@ jambot
   <a href="https://koreanbots.dev/bots/921424724729397318" target="_blank"><img src="https://koreanbots.dev/api/widget/bots/servers/921424724729397318.svg?scale=1.0"></a>
   <a href="https://koreanbots.dev/bots/921424724729397318/vote" target="_blank"><img src="https://koreanbots.dev/api/widget/bots/votes/921424724729397318.svg?scale=1.0"></a>
 </div>  
----  
-## 소스 사용 전 꼭 읽어주세요
+## 소스 사용 전 꼭 읽어주세요   
 (prefix)API
 잼민이봇 오픈 소스를 사용하였습니다.   
 잼민이봇 : https://github.com/yoomin1122/jambot   
