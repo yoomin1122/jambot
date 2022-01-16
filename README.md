@@ -22,7 +22,7 @@ jambot
 
 ## 소스 사용 전 꼭 읽어주세요   
   (prefix)API  
-  잼민이봇 오픈 소스를 사용하였습니다.     
-  잼민이봇 : https://github.com/yoomin1122/jambot     
+  **잼민이봇 오픈 소스를 사용하였습니다.     
+  잼민이봇 : https://github.com/yoomin1122/jambot**     
   를 꼭 적어주세요!   
 
