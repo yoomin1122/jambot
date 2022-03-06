@@ -21,10 +21,19 @@ jambot
 - [[korean bot list]](https://koreanbots.dev/bots/921424724729397318)
 
 ## 소스 사용 전 꼭 읽어주세요   
-  (prefix)API  
-  **잼민이봇 오픈 소스를 사용하였습니다.     
-  잼민이봇 : https://github.com/yoomin1122/jambot**     
-  를 꼭 적어주세요! 
+잼민이봇은 MIT License를 사용하고 있습니다.
+상업적 이용, 수정, 배포, 개인적이용
+
+제약
+법적 책임 없음
+보증하지 않음
+
+조건
+라이선스 및 저작권을 고지를 해야 합니다.
+
+ex> star를 누르시거나
+{prefix}API를 하였을때 어떤 커멘드를 사용했는지 나와야 합니다
+예시 : 이 봇은 잼민이봇의 {commands}를 수정 후 사용하였습니다.
   
   ## 서비스 약관
 
