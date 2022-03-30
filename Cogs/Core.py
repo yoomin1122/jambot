@@ -42,43 +42,6 @@ class Core(commands.Cog):
     async def 서버(self, ctx):
       await ctx.send(f"**잼민이봇 서버** \n> https://discord.gg/B6MjFDjz23")
     
-    @commands.command()
-    @commands.is_owner()
-    async def 공지(self, ctx, *, text, c:str=None):
-      for guild in self.bot.guilds:
-        for channel in guild.text_channels:
-            if channel:
-                  if c is None:
-                    print("error")
-                  elif c == "긴급공지":
-                    embed = discord.Embed(color=0x000000, timestamp=ctx.message.created_at)
-                    embed.set_author(name="긴급공지", icon_url=self.bot.user.avatar_url)
-                    embed.add_field(name=f"긴급공지 입니다.", value=str(text), inline=False)
-                    embed.set_thumbnail(url=self.bot.user.avatar_url)
-                    embed.set_footer(text=self.bot.user.name, icon_url=self.bot.user.avatar_url)
-                    await ctx.message.add_reaction(emoji="✅")
-                    print("error")
-                  elif c == "공지사항":
-                    embed = discord.Embed(color=0x000000, timestamp=ctx.message.created_at)
-                    embed.set_author(name="공지사항", icon_url=self.bot.user.avatar_url)
-                    embed.add_field(name=f"공지사항 입니다.", value=str(text), inline=False)
-                    embed.set_thumbnail(url=self.bot.user.avatar_url)
-                    embed.set_footer(text=f"Sent by {ctx.message.author}", icon_url=self.bot.user.avatar_url)
-                    await ctx.message.add_reaction(emoji="✅")
-                    await channel.send(embed=embed)
-                    break
-                  elif c == "업데이트":
-                    embed = discord.Embed(color=0x000000, timestamp=ctx.message.created_at)
-                    embed.set_author(name="공지사항", icon_url=self.bot.user.avatar_url)
-                    embed.add_field(name=f"업데이트 내역 입니다.", value=str(text), inline=False)
-                    embed.set_thumbnail(url=self.bot.user.avatar_url)
-                    embed.set_footer(text=self.bot.user.name, icon_url=self.bot.user.avatar_url)
-                    await ctx.message.add_reaction(emoji="✅")
-                    await channel.send(embed=embed)
-                    break
-                  else: return await ctx.send(f"error 404")
-                  await ctx.send(embed=embed)
-
 
     @commands.command(aliases=["도움말", "도움", "help", "commands"])
     async def 명령어(self, ctx, c:str=None):
