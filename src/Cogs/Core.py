@@ -80,49 +80,15 @@ class Core(commands.Cog):
 
     @commands.command(aliases=["도움말", "도움", "help", "commands"])
     async def 명령어(self, ctx, c:str=None):
-      if c is None:
         embed = discord.Embed(color=0x000000)
         embed.set_author(name="명령어", icon_url="https://t.ly/QXEv")
         embed.set_thumbnail(url=ctx.author.avatar_url)
         embed.add_field(name=":point_right: 접두사 (prefix)", value="> 접두사는 `잼민아 `입니다!", inline=False)
         embed.add_field(name=":loudspeaker: 일반", value="> 핑, 안녕, 초대, 서버, 버그", inline=False)
-        embed.add_field(name=":speech_balloon: 대화 (chat)", value="너무 많은 관계로 [[잼민이봇 서포트서버]](https://discord.gg/B6MjFDjz23)에 #잼민이봇 명령어 채널에서 확인 부탁드려요", inline=False)
+        embed.add_field(name=":speech_balloon: 대화 (chat)", value="많은 명령어를 이스터 에그 처럼 찾아보세요!", inline=False)
         embed.add_field(name=":video_game: 게임 (game)", value="> 가위바위보, 주사위", inline=False)
         embed.set_footer(text="제작자 : YooMin1122#5973")
-      elif c == "접두사":
-        embed = discord.Embed(color=0x000000)
-        embed.set_author(name="접두사", icon_url="https://t.ly/QXEv")
-        embed.set_thumbnail(url=ctx.author.avatar_url)
-        embed.add_field(name=":point_right: 접두사", value="> 접두사는 `잼민아 `입니다!", inline=False)
-        embed.set_footer(text="제작자 : YooMin1122#5973")
-      elif c == "일반":
-        embed = discord.Embed(color=0x000000)
-        embed.set_author(name="일반", icon_url="https://t.ly/QXEv")
-        embed.set_thumbnail(url=ctx.author.avatar_url)
-        embed.add_field(name=": loudspeaker: 일반", value="핑, 안녕", inline=False)
-        embed.add_field(name="핑", value="> 잼민이봇의 지연시간 확인용 입니다", inline=False)
-        embed.add_field(name="안녕", value="> 잼민이 봇과 인사합니다!", inline=False)
-        embed.add_field(name="초대", value="> 잼민이 봇을 초대할수있는 링크를 올립니다", inline=False)
-        embed.add_field(name="서버", value="> 잼민이 봇 서포트 서버의 초대링크를 올립니다.", inline=False)
-        embed.add_field(name="버그", value="> 버그신고는 잼민이봇 서버로!", inline=False)
-        embed.set_footer(text="제작자 : YooMin1122#5973")
-      elif c == "대화":
-        embed = discord.Embed(color=0x000000)
-        embed.set_author(name="대화", icon_url="https://t.ly/QXEv")
-        embed.set_thumbnail(url=ctx.author.avatar_url)
-        embed.add_field(name=":speech_balloon: 대화", value="각 명령어마다 랜덤의 메세지가 나옵니다!", inline=False)
-        embed.add_field(name="목록", value="너무 많은 관계로 [[잼민이봇 서포트서버]](https://discord.gg/B6MjFDjz23)에 #잼민이봇 명령어 채널에서 확인 부탁드려요", inline=False)
-        embed.set_footer(text="제작자 : YooMin1122#5973")
-      elif c == "게임":
-        embed = discord.Embed(color=0x000000)
-        embed.set_author(name="게임", icon_url="https://t.ly/QXEv")
-        embed.set_thumbnail(url=ctx.author.avatar_url)
-        embed.add_field(name=":video_game: 게임", value="가위바위보, 주사위", inline=False)
-        embed.add_field(name="가위바위보", value="> 안내면 진다 가위바위보!", inline=False)
-        embed.add_field(name="주사위", value="> 잼민이 봇과 함께 해서 누가 이길까?", inline=False)
-        embed.set_footer(text="제작자 : YooMin1122#5973")
-      else: return await ctx.reply(f"`{c}`라는건 업는대")
-      await ctx.reply(embed=embed, mention_author=False)
+        await ctx.reply(embed=embed, mention_author=False)
 
 
     @commands.command()
@@ -131,32 +97,10 @@ class Core(commands.Cog):
         embed.set_author(name="잼민이봇", icon_url="https://t.ly/QXEv")
         embed.set_thumbnail(url=ctx.author.avatar_url)
         embed.add_field(name="개발자", value="> Team DM\n> <@433183785564110848>")
-        embed.add_field(name="개발언어", value="> 파이썬(discord.py 1.7.3)")
+        embed.add_field(name="개발언어", value="> 파이썬(pycord 2.0.0b7)")
         embed.add_field(name="사이트", value="> [[홈페이지]](https://jambot.kro.kr)\n> [[Team DM]](http://teamdm.kro.kr)\n> [[깃허브]](https://github.com/yoomin1122/jambot)\n> [[초대하기]](http://invite.jambot.kro.kr) \n> [[서버 참여하기]](https://discord.gg/B6MjFDjz23)", inline=False)
         embed.add_field(name="개발일자", value="> 2021년 12월 17일")
         await ctx.reply(embed=embed, mention_author=False)
-
-
-
-
-
-    @commands.command()
-    async def 테정보(self, ctx):
-        korea = "https://koreanbots.dev/api/v2/bots/921424724729397318" # 국내 코로나 발생 동향
-
-        response = requests.get(korea)
-        message = response.text
-        data = json.loads(message)
-        embed = discord.Embed(color=0x000000)
-        embed.set_author(name="봇 정보", icon_url="https://t.ly/QXEv")
-        embed.set_thumbnail(url=ctx.author.avatar_url)
-        embed.add_field(name="투표수", value = format(data["data"]["votes"], ',')+"개")
-        embed.add_field(name="서버수", value = format(data["data"]["servers"], ',')+"서버")
-        await ctx.reply(embed=embed, mention_author=False)
-
-
-
-
 
 
     @cog_ext.cog_slash(name="정보", description="잼민이봇이 어떤지 알수있어요!")
@@ -165,7 +109,7 @@ class Core(commands.Cog):
         embed.set_author(name="잼민이봇", icon_url="https://t.ly/QXEv")
         embed.set_thumbnail(url=ctx.author.avatar_url)
         embed.add_field(name="개발자", value="> Team DM\n> <@433183785564110848>")
-        embed.add_field(name="개발언어", value="> 파이썬(discord.py 1.7.3)")
+        embed.add_field(name="개발언어", value="> 파이썬(pycord 2.0.0b7)")
         embed.add_field(name="사이트", value="> [[홈페이지]](https://jambot.kro.kr)\n> [[Team DM]](http://teamdm.kro.kr)\n> [[깃허브]](https://github.com/yoomin1122/jambot)\n> [[초대하기]](http://invite.jambot.kro.kr) \n> [[서버 참여하기]](https://discord.gg/B6MjFDjz23)", inline=False)
         embed.add_field(name="개발일자", value="> 2021년 12월 17일")
         await ctx.send(embed=embed)
