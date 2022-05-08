@@ -43,11 +43,11 @@ async def on_guild_join(guild):
         if guild.system_channel: # If it is not None
           embed = discord.Embed(color=0x000000)
           embed.set_author(name="잼민이봇을 초대해주셔서 감사합니다!", icon_url="https://t.ly/QXEv")
-          embed.add_field(name="개발자", value="> Team DM\n> <@433183785564110848>")
+          embed.add_field(name="개발자", value="> Team. YooMin1122 \n<@433183785564110848>")
           embed.add_field(name="잼민이봇 서포트 서버", value="[[참여하기]](https://discord.gg/B6MjFDjz23)")
           embed.add_field(name="잼민이봇 투표해주세요!", value="[[투표하기]](https://jambot.fun/vote)", inline=False)
-          embed.add_field(name="잼민이봇 초대링크", value="[[초대하기]](https://jambot.fun/invite)")
-          embed.add_field(name="개인정보사용방침", value="[[바로가기]](https://team-dm.kro.kr/p.html)")
+          embed.add_field(name="서비스 이용 약관", value="[[확인하기]](https://wadeinteractive.net/terms)")
+          embed.add_field(name="개인정보 보호정책", value="[[확인하기]](https://wadeinteractive.net/privacy)")
           await guild.system_channel.send(embed=embed)
           print(f"{guild.name}({guild.id})에 추가됨 현재 {len(bot.guilds)}서버에 있음")
 
