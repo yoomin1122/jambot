@@ -30,7 +30,7 @@ for filename in os.listdir('Cogs'):
 @bot.event
 async def on_ready():
     status = cycle(["잼민이봇", "잼민아 명령어", f"{len(bot.guilds)} 서버에 잼민이봇이 있음!"])
-    @tasks.loop(seconds=8)
+    @tasks.loop(seconds=5)
     async def change_status():
         await bot.change_presence(activity=discord.Game(next(status)))
 
