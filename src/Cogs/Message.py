@@ -20,8 +20,6 @@ import pymysql.cursors
 
 db = pymysql.connect(host='localhost', port=3306, user='root', passwd='yoominserver1122', db='cmds', charset='utf8')
 curs = db.cursor(pymysql.cursors.DictCursor)
-rja = ["개새끼", "지랄", "새끼", "시발", "느금마", "병신", "븅신", "병신새끼", "븅신새끼", "븅딱", "ㅅㅂ", "ㅆㅂ", "ㅄ", "ㅂㅅ", "ㄴㄱㅁ"]
-dlrjs = ["자지", "불알", "부랄", "섹스", "sex", "쥬지", "뷰지", "야스"]
 class Message(commands.Cog):
 
     def __init__(self, bot):
